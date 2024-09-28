@@ -13,7 +13,6 @@ const CoffeeModal = ({ isOpen, onRequestClose, coffee }) => {
         <Image src={coffee.imgUrl} alt={coffee.title} width={300} height={200} className="rounded" />
         <h2 className="text-2xl font-bold mt-4">{coffee.title}</h2>
         <p className="text-lg mt-2">${coffee.price.toFixed(2)}</p>
-        <p className="mt-2">This is where you can add the description of the coffee.</p>
       </div>
     </div>
   );

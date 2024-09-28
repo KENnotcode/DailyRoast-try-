@@ -12,6 +12,7 @@ const OurMenu = ({ setCardLength }) => {
     fetch("https://fake-coffee-api.vercel.app/api")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data); // Log to verify data structure
         setProducts(data);
       })
       .catch((err) => console.error("Failed to fetch products", err));
@@ -29,14 +30,16 @@ const OurMenu = ({ setCardLength }) => {
               products.map((product) => (
                 <IcedCoffeeCard
                   key={product.id}
-                  {...product}
+                  image_url={product.image_url} // Use the correct property here
+                  name={product.name} // Use the correct property here
+                  price={product.price} // Use the correct property here
                   active={activeProduct === product.id}
                   handleClick={() => setActiveProduct(product.id)}
                   setCardLength={setCardLength}
                 />
               ))
             ) : (
-              <p>Loading products...</p>
+              <p className="text-center">Loading products...</p>
             )}
           </div>
         </div>

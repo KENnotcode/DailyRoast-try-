@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['iili.io'],
+    domains: ['iili.io', 'fake-coffee-api.vercel.app'], // Add all necessary domains here
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
