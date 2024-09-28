@@ -28,7 +28,7 @@ const IcedCoffeeCard = ({id,imgUrl,title,price,active,handleClick, setCardLength
 
     // useEffect(() => {
     //     const storedCartCount = localStorage.getItem("cartCount");
-    //     if (storedCartCount) {
+    //     if (storedCartCount) {asdasd
     //       setCartCount(parseInt(storedCartCount));
     //     }
     //   }, [handleAddToCart]);
