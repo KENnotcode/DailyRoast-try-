@@ -4,7 +4,7 @@ import {textContainer,textVariant} from "@/utils/motion"
 export const RunningText = ({color,align}) => {
     return (
         <motion.p variants={textContainer} initial="hidden" whileInView="show" className={`${color && align ? `text-[${color}] text-[${align}]` : 'text-center text-gray-500'} mt-10 font-semibold`}>
-            {Array.from("| Coffee First - Calbayog").map((letter,index) => (
+            {Array.from("| Daily Roast - Calbayog").map((letter,index) => (
                 <motion.span key={index} variants={textVariant}>{letter}</motion.span>
             ))}
         </motion.p>

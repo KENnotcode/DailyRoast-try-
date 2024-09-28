@@ -86,7 +86,7 @@ const Navbar = ({ cardLength }) => {
           <div>
             <ul className="flex gap-4 text-lg text-white">
               {linkList.map((link) => {
-                if (link.title === "Menu") {
+                if (link.title === "Coffee Menu") {
                   return (
                     <Dropdown
                       arrow
