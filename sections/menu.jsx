@@ -20,14 +20,14 @@ import CookiesCard from "@/components/CookiesCard";
 import HotcoffeeCard from "@/components/HotcoffeeCard";
 
 
-const OurMenu = () => {
+const OurMenu = ({setCardLength}) => {
   const [icedcoffeeActive, seticedcoffeeActive] = useState("icedcoffee4"); 
   const [hotcoffeeActive, sethotcoffeeActive] = useState("hotcoffee5"); 
   const [creationseriesActive, setcreastionseriesActive] = useState("CreationSeries3"); 
   const [noncoffeeActive, setnoncoffeeActive] = useState("NonCoffee2"); 
   const [frappesActive, setfrappesActive] = useState("Frappes2"); 
   const [pastriesActive, setpastriesActive] = useState(""); 
-  
+
   return (
     <>
         
@@ -36,10 +36,10 @@ const OurMenu = () => {
         <RunningText />
         <TitlePage title="Iced Coffee" />
 
-        <div id="IcedCoffee" style={{ overflowX: 'auto' }}>
+        <div id="IcedCoffee" style={{ overflowX: 'auto'}}>
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {IcedCoffee.map((coffee, index) => (
-              <IcedCoffeeCard key={coffee.id} {...coffee} active={icedcoffeeActive} handleClick={seticedcoffeeActive} />
+              <IcedCoffeeCard key={coffee.id} {...coffee} active={icedcoffeeActive} handleClick={seticedcoffeeActive} setCardLength={setCardLength} />
             ))}
           </div>
         </div>
@@ -53,7 +53,7 @@ const OurMenu = () => {
         <div id="hotcoffee" style={{ overflowX: 'auto' }}>
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {HotCoffee.map((coffee, index) => (
-              <HotcoffeeCard key={coffee.id} {...coffee} active={hotcoffeeActive} handleClick={sethotcoffeeActive} />
+              <HotcoffeeCard key={coffee.id} {...coffee} active={hotcoffeeActive} handleClick={sethotcoffeeActive} setCardLength={setCardLength}/>
             ))}
           </div>
         </div>
@@ -67,7 +67,7 @@ const OurMenu = () => {
         <div id="creationseries">
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {CreationSeries.map((coffee, index) => (
-              <CoffeeCard key={coffee.id} {...coffee} active={creationseriesActive} handleClick={setcreastionseriesActive} />
+              <CoffeeCard key={coffee.id} {...coffee} active={creationseriesActive} handleClick={setcreastionseriesActive} setCardLength={setCardLength}/>
             ))}
           </div>
         </div>
@@ -81,7 +81,7 @@ const OurMenu = () => {
         <div id="noncoffee">
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {NonCoffee.map((item, index) => (
-              <CoffeeCard key={item.id} {...item} active={noncoffeeActive} handleClick={setnoncoffeeActive} />
+              <CoffeeCard key={item.id} {...item} active={noncoffeeActive} handleClick={setnoncoffeeActive} setCardLength={setCardLength}/>
             ))}
           </div>
         </div>
@@ -95,7 +95,7 @@ const OurMenu = () => {
         <div id="frappes">
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {Frappes.map((item, index) => (
-              <CoffeeCard key={item.id} {...item} active={frappesActive} handleClick={setfrappesActive} />
+              <CoffeeCard key={item.id} {...item} active={frappesActive} handleClick={setfrappesActive} setCardLength={setCardLength} />
             ))}
           </div>
         </div>
@@ -108,7 +108,7 @@ const OurMenu = () => {
         <div id="pastries">
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
             {Pastries.map((item, index) => (
-              <CookiesCard key={item.id} {...item} active={pastriesActive} handleClick={setpastriesActive} />
+              <CookiesCard key={item.id} {...item} active={pastriesActive} handleClick={setpastriesActive} setCardLength={setCardLength}/>
             ))}
           </div>
         </div>

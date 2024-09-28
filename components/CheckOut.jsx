@@ -2,8 +2,7 @@ import React from 'react'
 
 const CheckOut = () => {
   return (
-    
-    <div><SIKRIT></SIKRIT></div>
+    <div>Basta</div>
   )
 }
 

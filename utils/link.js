@@ -1,7 +1,7 @@
 export const linkList = [
     {
         id:1,
-        href:"/",
+        href:"#home",
         title:"Home"
     },
     {

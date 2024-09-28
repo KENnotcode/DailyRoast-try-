@@ -2,7 +2,7 @@ import Link from "next/link"
 
 function Navlink({href,title}) {
   return (
-    <li>
+    <li className="hover:text-menuitemcolor">
         <Link href={href} scroll={false}>{title}</Link>
     </li>
   )

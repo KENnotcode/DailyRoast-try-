@@ -10,6 +10,16 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      'dirtywhite': '#e7e5e4',
+      'tahiti': '#ffffff',
+      'gray': '#1f2937',
+      'dark': '#000000',
+      'red': '#FF0000',
+      'dark-blue': '#00008B',
+      'menuitemcolor': '#FCB900',
+      'addtocartcolor': "#FFA500"
+    },
     extend: {},
   },
   plugins: [],
