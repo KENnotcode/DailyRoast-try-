@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Section from "@/components/Section";
-import IcedCoffeeCard from "@/components/IcedCoffeeCard";
+import CoffeeCard from "@/components/CoffeeCard";
 import { RunningText, TitlePage } from "@/components/TypingText";
 
 const OurMenu = ({ setCardLength }) => {
@@ -26,7 +26,7 @@ const OurMenu = ({ setCardLength }) => {
         <div className="mt-[50px] flex flex-row min-h-[70vh] gap-4">
           {products.length > 0 ? (
             products.map((product) => (
-              <IcedCoffeeCard
+              <CoffeeCard
                 key={product.id}
                 {...product}
                 active={activeProduct === product.id}

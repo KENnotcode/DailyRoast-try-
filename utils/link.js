@@ -24,8 +24,8 @@ export const linkList = [
 export const CoffeTypes = [
     {
         id:3,
-        href:"#IcedCoffee",
-        title:"Iced Coffee"
+        href:"#coffee-menu",
+        title:"Coffee"
     },
     {
         id:4,

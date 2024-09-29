@@ -1,19 +1,16 @@
 import Image from "next/image";
 import { Dropdown, Space, Badge, Menu } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import { DownOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import Navlink from "./Navlink";
 import { CoffeTypes, linkList } from "@/utils/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
-import { ShoppingCartOutlined } from "@ant-design/icons";
-
-const Navbar = ({ cardLength }) => {
+const Navbar = ({ totalQuantity }) => {
   const router = useRouter();
   const [navbar, setNavbar] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
-  const [localStorageData, setLocalStorageData] = useState(0);
+  const [localStorageData, setLocalStorageData] = useState([]);
 
   useEffect(() => {
     const changeBackground = () => {
@@ -32,35 +29,18 @@ const Navbar = ({ cardLength }) => {
       const data = JSON.parse(localStorage.getItem("data")) || [];
       setLocalStorageData(data);
     }
-  }, [cardLength]);
-
-  const handleAddToCart = (item) => {
-    const updatedCartItems = [...cartItems, item];
-    setCartItems(updatedCartItems);
-    setCartCount(updatedCartItems.length);
-    setCardLength(new Set(updatedCartItems.map((item) => item.title)).size);
-
-    localStorage.setItem("cartCount", updatedCartItems.length);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-  };
+  }, [totalQuantity]);
 
   const cartMenu = (
     <Menu>
-      <div className=" max-h-80 overflow-y-scroll" id="mouse">
+      <div id="mouse">
         {localStorageData.length > 0 ? (
-          Object.entries(
-            localStorageData.reduce((acc, item) => {
-              acc[item.title] = (acc[item.title] || 0) + 1;
-              return acc;
-            }, {})
-          ).map(([title, count], index) => (
-            <Menu.Item>
-              <div className="flex gap-2 justify-between" key={index}>
-                <p>{title}</p>{" "}
-                <div className=" flex gap-1 bg-[#b77b2e] rounded-md p-1">
-                  {" "}
-                  <p className="flex justify-end">{count}</p>
-                  <p className=""> quantity</p>
+          localStorageData.map((item, index) => (
+            <Menu.Item key={index}>
+              <div className="flex gap-[230px] justify-between">
+                <p>{item.title}</p>
+                <div className="flex gap-1 bg-[#b77b2e] rounded-md p-1 w-16">
+                  <p className="flex justify-end px-3">{item.price}</p>
                 </div>
               </div>
             </Menu.Item>
@@ -69,26 +49,46 @@ const Navbar = ({ cardLength }) => {
           <Menu.Item>No items in cart</Menu.Item>
         )}
       </div>
+      <Menu.Item key="more-products">
+        <div className="pl-2 flex justify-between items-center">
+          <span>
+            {localStorageData.length > 0
+              ? `${localStorageData.length} Products in the Cart`
+              : "0 Products in the Cart"}
+          </span>
+          <Link href="/cart">
+            <button className="bg-addtocartcolor text-black hover:text-tahiti px-4 py-2 rounded-md ml-2">
+              View My Shopping Cart
+            </button>
+          </Link>
+        </div>
+      </Menu.Item>
     </Menu>
   );
 
   return (
-    <>
+    <div
+      className={`fixed top-0 left-0 w-full z-[10] ${
+        router.pathname === "/cart" ? "bg-dark" : ""
+      }`}
+    >
       <div
-        className={` ${
+        className={`${
           navbar ? "bg-dark" : "bg-opacity-0"
-        } duration-700 backdrop-blur-md bg-opacity-60 fixed z-[10] font-semibold  text-tahiti mt-4-600 w-[94.6%] pr-12 pl-4 pt-1 pb-1`}
+        } duration-700 backdrop-blur-md bg-opacity-60 font-semibold text-tahiti mt-4-600 pr-12 pl-4 pt-1 pb-1`}
       >
         <div className="flex justify-between items-center">
-          <div className="pl-3">
-            <Image src="/BASTAlogo.png" alt="logo" width={70} height={70} />
+          <div className="flex items-center">
+            <Image src="/transparentGIF.gif" alt="logo" width={135} height={135} />
+            <span className="text-2xl font-bold ml-2">Daily Roast</span>
           </div>
           <div>
             <ul className="flex gap-4 text-lg text-white">
               {linkList.map((link) => {
-                if (link.title === "Coffee Menu") {
+                if (link.title === "Menu") {
                   return (
                     <Dropdown
+                      key={link.id}
                       arrow
                       menu={{
                         items: CoffeTypes.map((data) => ({
@@ -113,25 +113,29 @@ const Navbar = ({ cardLength }) => {
                   );
                 }
                 return (
-                  <Navlink key={link.id} href={link.href} title={link.title} />
+                  <Navlink
+                    key={link.id}
+                    href={link.href}
+                    title={link.title}
+                  />
                 );
               })}
-              <Dropdown overlay={cartMenu}>
-                <Badge
-                  className="duration-300 hover:scale-150"
-                  count={cardLength}
-                  offset={[10, 0]}
-                >
-                  <ShoppingCartOutlined
-                    style={{ fontSize: 24, color: "white" }}
-                  />
-                </Badge>
-              </Dropdown>
+              {router.pathname !== "/cart" && (
+                <Dropdown overlay={cartMenu}>
+                  <Badge
+                    className="duration-300 hover:scale-150"
+                    count={totalQuantity}
+                    offset={[10, 0]}
+                  >
+                    <ShoppingCartOutlined style={{ fontSize: 24, color: "white" }} />
+                  </Badge>
+                </Dropdown>
+              )}
             </ul>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

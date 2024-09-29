@@ -11,7 +11,7 @@ const About = () => {
             </div>
             <div className="absolute top-0 right-0 w-1/2 h-full bg-[#333131] z-0"/>
             <div className="z-1 py-8 px-10 relative flex justify-start items-center">
-                <h1 className="absolute top-10 left-10 text-6xl font-bold text-white opacity-10">Coffee First</h1>
+                <h1 className="absolute top-10 left-10 text-6xl font-bold text-white opacity-10">Daily Roast</h1>
                 <div>
                     <RunningText color="#7d7d7d" align="left"/>
                     <TitlePage title="About us" color="#e8e8e8" align="left"/>

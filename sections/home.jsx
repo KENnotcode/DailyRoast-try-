@@ -1,5 +1,4 @@
 import Navbar from '@/components/Navbar'
-// import bastaNavbar from '@/components/bastaNavbar'
 import Section from '@/components/Section'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,8 +19,8 @@ const Home = ({cardLength}) => {
 
   return (
     <Section id="home">
-        <div className="top-0 left-0 h-full w-full">
-            <Image src="/image/bg.jpg"  alt="background" fill className="object-cover" />
+        <div className="top-0 left-0 h-{100} w-{100}">
+            <Image src="/image/background.jpg"  alt="background" fill className="object-cover w-{150}" />
         </div>
        <Navbar cardLength={cardLength}/>
        {/* <bastaNavbar/> */}
