@@ -24,7 +24,7 @@ const IcedCoffeeCard = ({
             alt={name}
             fill
             className="object-cover rounded-xl"
-            style={{ transform: "scale(1.4)" }} // Enlarge the coffee image
+            style={{ transform: "scale(1.4)" }} // Enlarge the coffee imagebasrta
           />
         </div>
       </div>
