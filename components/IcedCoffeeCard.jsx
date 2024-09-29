@@ -1,26 +1,60 @@
-import React from 'react';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-const IcedCoffeeCard = ({ image_url, name, price, active, handleClick }) => {
+const IcedCoffeeCard = ({
+  id,
+  image_url,
+  name,
+  price,
+  active,
+  handleClick,
+}) => {
   return (
-    <div
-      onClick={handleClick}
-      className={`cursor-pointer border rounded-lg shadow-md transition-transform transform ${
-        active ? 'scale-105 border-blue-500' : 'border-gray-300'
-      }`}
+    <motion.div
+      className={`${
+        active === id ? "flex-[10]" : "flex-[2]"
+      } relative flex items-center justify-center min-w-[300px] h-[550px] cursor-pointer transition-[flex] ease-in-out duration-700 overflow-hidden border-black border rounded-lg`}
+      onClick={() => handleClick(id)}
     >
-      <Image
-        src={image_url} // Use the correct property here
-        alt={name} // Use the correct property here
-        width={200} // Adjust based on your design
-        height={300} // Adjust based on your design
-        className="rounded-t-lg object-cover"
-      />
-      <div className="p-4">
-        <h3 className="text-lg font-semibold">{name}</h3> {/* Ensure this matches the API response */}
-        <p className="text-md text-gray-700">₱{price.toFixed(2)}</p> {/* Format price to 2 decimal places */}
+      {/* Coffee Image with Increased Size */}
+      <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+        <div className="w-[90%] h-[90%]"> {/* Make the picture container bigger */}
+          <Image
+            src={image_url}
+            alt={name}
+            fill
+            className="object-cover rounded-xl"
+            style={{ transform: "scale(1.4)" }} // Enlarge the coffee image
+          />
+        </div>
       </div>
-    </div>
+
+      {active !== id ? (
+        <div className="absolute bottom-0 w-[30px] h-35 text-white text-2xl font-medium rotate-[-90deg]">
+          {name}
+        </div>
+      ) : (
+        <div className="absolute p-6 w-full h-36 bottom-0 left-0 rounded-b-xl bg-[rgba(0,0,0,0.5)]">
+          <div className="text-tahiti">
+            <h2 className="text-3xl font-semibold">{name}</h2>
+          </div>
+          <div className="flex justify-between mb-2">
+            <p className="text-2xl font-medium">{price}</p>
+            <button
+              className="flex justify-between mb-2 gap-3 items-center bg-addtocartcolor px-3 py-2 rounded-lg hover:text-tahiti"
+            >
+              <Image
+                src={"/ADDTUCARTicon.png"}
+                width={35}
+                height={35}
+                alt="Add to cart icon"
+              />
+              <p className="text-white text-right">Add to cart</p>
+            </button>
+          </div>
+        </div>
+      )}
+    </motion.div>
   );
 };
 

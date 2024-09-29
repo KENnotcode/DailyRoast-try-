@@ -28,11 +28,11 @@ const Home = ({cardLength}) => {
 
         <div className="relative h-[70vh] z-[1] flex justify-center items-center">
             <div className="flex flex-col justify-center items-center text-center  text-tahiti">
-                <h1 className="text-5xl">COFFEE FIRST - CALBAYOG</h1>
+                <h1 className="text-5xl">DAILY ROAST - CALBAYOG</h1>
                 <p className="text-base md:text-lg font-semibold mt-2">
                     {text} <Cursor cursorBlinking cursorStyle="|" cursorColor="#ffaa17" />
                 </p>
-                <Link href="#IcedCoffee" scroll={false} className="mt-5 bg-gray px-[2rem] py-[8px] rounded-xl scroll-smoth">
+                <Link href="#coffee-menu" scroll={false} className="mt-5 bg-gray px-[2rem] py-[8px] rounded-xl scroll-smoth">
                     <p className="font-semibold tracking-wider">MENU</p>
                 </Link>
 

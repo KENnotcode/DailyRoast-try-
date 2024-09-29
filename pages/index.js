@@ -20,7 +20,7 @@ export default function Home() {
     <CartProvider>
     <div className='relative'>
       <Head>
-        <title>Coffee First - Calbayog</title>
+        <title>Daily Roast - Calbayog</title>
         <meta name="description" content="freshcoffee website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/BASTAfavicon.png" />
