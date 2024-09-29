@@ -7,7 +7,6 @@ Daily Roast is an online coffee shop platform that brings the finest coffee blen
 - **Browse Coffee Menu:** Explore a variety of coffee types, from rich espressos to creamy lattes.
 - **Responsive Design:** Optimized for both desktop and mobile, ensuring a smooth browsing experience on any device.
 - **Cart Functionality:** Easily add items to your cart and view a summary of your selected products.
-- **Pinwheel Themed Peace Representation:** A special section representing peace with a pinwheel theme, in line with the NSTP-CWTS activity.
 - **User-Friendly UI:** A clean and intuitive user interface that prioritizes customer satisfaction.
 
 ## Tech Stack
