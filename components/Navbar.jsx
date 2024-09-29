@@ -66,6 +66,13 @@ const Navbar = ({ totalQuantity }) => {
     </Menu>
   );
 
+  const scrollToHome = () => {
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       className={`fixed top-0 left-0 w-full z-[10] ${
@@ -79,8 +86,15 @@ const Navbar = ({ totalQuantity }) => {
       >
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Image src="/transparentGIF.gif" alt="logo" width={135} height={135} />
-            <span className="text-2xl font-bold ml-2">Daily Roast</span>
+            <Image
+              src="/transparentGIF.gif"
+              alt="logo"
+              width={135}
+              height={135}
+              onClick={scrollToHome} // Added click handler for the GIF
+              className="cursor-pointer duration-300 hover:scale-150" // Change the cursor to pointer
+            />
+            <span className="text-2xl font-bold ml-2" onClick={scrollToHome}>Daily Roast</span>
           </div>
           <div>
             <ul className="flex gap-4 text-lg text-white">
@@ -113,11 +127,7 @@ const Navbar = ({ totalQuantity }) => {
                   );
                 }
                 return (
-                  <Navlink
-                    key={link.id}
-                    href={link.href}
-                    title={link.title}
-                  />
+                  <Navlink key={link.id} href={link.href} title={link.title} />
                 );
               })}
               {router.pathname !== "/cart" && (
@@ -127,7 +137,9 @@ const Navbar = ({ totalQuantity }) => {
                     count={totalQuantity}
                     offset={[10, 0]}
                   >
-                    <ShoppingCartOutlined style={{ fontSize: 24, color: "white" }} />
+                    <ShoppingCartOutlined
+                      style={{ fontSize: 24, color: "white" }}
+                    />
                   </Badge>
                 </Dropdown>
               )}
