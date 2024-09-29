@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <Section id="contact">
-        <div className="grid grid-cols-2 mt-12">
+        <div className="grid grid-cols-2 mt-3">
             <div>
                 <FooterTitle>Contact</FooterTitle>
                 <div className="flex items-center text-[#e8e8e8] opacity-90">
@@ -44,8 +44,8 @@ const Footer = () => {
                     </div>
                 </div>
         </div>
-        <div className="w-full h-[1.5px] bg-[#e8e8e8] opacity-90 mt-20" />
-        <p className="text-[#e8e8e8] opacity-90 text-xs font-light tracking-wider text-center mt-2">&copy;{date.getFullYear()} Freshcoffee. All rights reserved</p>
+        <div className="w-full h-[1.5px] bg-[#e8e8e8] opacity-90 mt-[87px]" />
+        <p className="text-[#e8e8e8] opacity-90 text-xs font-light tracking-wider text-center mt-3">&copy;{date.getFullYear()} Freshcoffee. All rights reserved</p>
     </Section>
   )
 }
