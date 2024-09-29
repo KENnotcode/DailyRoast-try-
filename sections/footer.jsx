@@ -12,7 +12,7 @@ const Footer = () => {
                 <FooterTitle>Contact</FooterTitle>
                 <div className="flex items-center text-[#e8e8e8] opacity-90">
                     <HiOutlineMail />
-                    <p className="ml-2">coffeefirst1013@gmail.com</p>
+                    <p className="ml-2">dailyroast@gmail.com</p>
                 </div>
                 <div className="flex items-center text-[#e8e8e8] opacity-90">
                     <HiOutlineLocationMarker />
@@ -22,18 +22,18 @@ const Footer = () => {
                 <div className="flex justify-around">
                     <div className="flex flex-col">
                         <FooterTitle>Social media</FooterTitle>
-                        <a href="https://www.instagram.com/thecoffeefirstph/" target="_blank" className="text-[#e8e8e8] opacity-90">Instagram</a>
-                        <a href="https://www.facebook.com/coffeefirstcalbayog" target="_blank" className="text-[#e8e8e8] opacity-90">Facebook</a>
+                        <a href="https://www.instagram.com/kenphotographs_/" target="_blank" className="text-[#e8e8e8] opacity-90">Instagram</a>
+                        <a href="https://www.facebook.com/kenkencubilo" target="_blank" className="text-[#e8e8e8] opacity-90">Facebook</a>
                         <a href="https://www.tiktok.com/@coffeefirstcalbayog" target="_blank" className="text-[#e8e8e8] opacity-90">Tiktok</a>
                     </div>
                     <div>
                         <FooterTitle>Product</FooterTitle>
-                        <p className="text-[#e8e8e8] opacity-90">Iced Coffee</p>
-                        <p className="text-[#e8e8e8] opacity-90">Hot Coffee</p>
-                        <p className="text-[#e8e8e8] opacity-90">Creation Series</p>
-                        <p className="text-[#e8e8e8] opacity-90">Non Coffee</p>
-                        <p className="text-[#e8e8e8] opacity-90">Frappes</p>
-                        <p className="text-[#e8e8e8] opacity-90">Pastries</p>
+                        <p className="text-[#e8e8e8] opacity-90">Coffee Beans</p>
+                        <p className="text-[#e8e8e8] opacity-90">Untitled</p>
+                        <p className="text-[#e8e8e8] opacity-90">Untitled</p>
+                        <p className="text-[#e8e8e8] opacity-90">Untitled</p>
+                        <p className="text-[#e8e8e8] opacity-90">Untitled</p>
+                        <p className="text-[#e8e8e8] opacity-90">Untitled</p>
                     </div>
                     <div>
                         <FooterTitle>Facility</FooterTitle>
