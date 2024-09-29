@@ -27,6 +27,7 @@ const Home = ({cardLength}) => {
 
         <div className="relative h-[70vh] z-[1] flex justify-center items-center">
             <div className="flex flex-col justify-center items-center text-center  text-tahiti">
+                <Image src="/transparentGIF.gif" alt="logo" width={200} height={200} />
                 <h1 className="text-5xl">DAILY ROAST - CALBAYOG</h1>
                 <p className="text-base md:text-lg font-semibold mt-2">
                     {text} <Cursor cursorBlinking cursorStyle="|" cursorColor="#ffaa17" />
