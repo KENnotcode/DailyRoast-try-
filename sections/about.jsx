@@ -20,9 +20,20 @@ const About = () => {
 
         {/* Right: Text Content */}
         <div className="relative z-0 flex flex-col justify-center items-start p-8 lg:p-12 bg-[#333131] rounded-xl shadow-md">
-          <h1 className="absolute top-5 lg:top-10 left-5 lg:left-10 text-5xl lg:text-6xl font-extrabold text-white opacity-5">
-            Daily Roast
-          </h1>
+          <div className="flex justify-center items-center gap-4">
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-white opacity-5">
+              Daily Roast
+            </h1>
+            <div className="">
+              <Image
+                src="/transparentGIF.gif"
+                alt="logo"
+                width={135}
+                height={135}
+                className="opacity-5"
+              />
+            </div>
+          </div>
           <RunningText color="#7d7d7d" align="left" />
           <TitlePage title="About Us" color="#e8e8e8" align="left" />
 
