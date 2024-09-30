@@ -1,9 +1,20 @@
 import {HiOutlineMail,HiOutlineLocationMarker} from "react-icons/hi"
 import FooterTitle from "@/components/FooterTitle"
 import Section from "@/components/Section"
+import { useEffect, useRef } from "react"
 
 const Footer = () => {
     const date = new Date()
+    const hasLogged = useRef(false); // Define the hasLogged ref
+
+    useEffect(() => {
+      if (!hasLogged.current) {
+        console.log("Developed using: React, Tailwind CSS, Antd");
+        console.log("Developer: Kenneth S. Cubilo - Bachelor of Science in Computer Science");
+        console.log("September 2024");
+        hasLogged.current = true;
+      }
+    }, []);
 
   return (
     <Section id="contact">
@@ -44,6 +55,7 @@ const Footer = () => {
                     </div>
                 </div>
         </div>
+        console.log("asdasdasd");
         <div className="w-full h-[1.5px] bg-[#e8e8e8] opacity-90 mt-[87px]" />
         <p className="text-[#e8e8e8] opacity-90 text-xs font-light tracking-wider text-center mt-3">&copy;{date.getFullYear()} Daily Roast. All rights reserved</p>
     </Section>
