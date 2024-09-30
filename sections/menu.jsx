@@ -23,7 +23,7 @@ const OurMenu = ({ setCardLength }) => {
       <TitlePage title="Coffee Menu" />
 
       <div id="coffee-menu" style={{ overflowX: "auto" }}>
-        <div className="mt-[50px] flex flex-row min-h-[70vh] gap-4">
+        <div className="mt-[40px] flex flex-row min-h-[70vh] gap-4">
           {products.length > 0 ? (
             products.map((product) => (
               <CoffeeCard

@@ -75,7 +75,7 @@ const Navbar = ({ totalQuantity }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-[10] ${
+      className={`fixed top-0 left-0 w-full z-10 ${
         router.pathname === "/cart" ? "bg-dark" : ""
       }`}
     >
@@ -91,13 +91,15 @@ const Navbar = ({ totalQuantity }) => {
               alt="logo"
               width={135}
               height={135}
-              onClick={scrollToHome} // Added click handler for the GIF
-              className="cursor-pointer duration-300 hover:scale-150" // Change the cursor to pointer
+              onClick={scrollToHome}
+              className="cursor-pointer duration-300 hover:scale-150"
             />
-            <span className="text-2xl font-bold ml-2" onClick={scrollToHome}>Daily Roast</span>
+            <span className="text-2xl font-bold ml-2 cursor-pointer" onClick={scrollToHome}>
+              Daily Roast
+            </span>
           </div>
           <div>
-            <ul className="flex gap-4 text-lg text-white">
+            <ul className="flex gap-6 text-lg text-white">
               {linkList.map((link) => {
                 if (link.title === "Menu") {
                   return (
@@ -117,12 +119,10 @@ const Navbar = ({ totalQuantity }) => {
                         })),
                       }}
                     >
-                      <a onClick={(e) => e.preventDefault()}>
-                        <Space className="cursor-pointer text-white hover:text-menuitemcolor">
-                          Menu
-                          <DownOutlined />
-                        </Space>
-                      </a>
+                      <Space className="cursor-pointer text-white hover:text-menuitemcolor">
+                        <span>Menu</span>
+                        <DownOutlined />
+                      </Space>
                     </Dropdown>
                   );
                 }
