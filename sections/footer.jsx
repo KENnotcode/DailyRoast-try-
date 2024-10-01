@@ -55,7 +55,6 @@ const Footer = () => {
                     </div>
                 </div>
         </div>
-        console.log("asdasdasd");
         <div className="w-full h-[1.5px] bg-[#e8e8e8] opacity-90 mt-[87px]" />
         <p className="text-[#e8e8e8] opacity-90 text-xs font-light tracking-wider text-center mt-3">&copy;{date.getFullYear()} Daily Roast. All rights reserved</p>
     </Section>
