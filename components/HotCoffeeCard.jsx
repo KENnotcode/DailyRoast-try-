@@ -1,115 +1,106 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import hotCoffeeProducts from "@/utils/hotcoffeedata";
 
 const HotcoffeeCard = ({
   id,
   imgUrl,
   title,
   price,
-  quantity,
+  description,
   active,
   handleClick,
   setTotalQuantity,
 }) => {
-  const getCount = () => {
-    const prevData = localStorage.getItem("data") || "[]";
-    const countData = JSON.parse(prevData);
-    return countData.length;
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
+  const handleAddToCart = () => {
+    // Logic to handle adding to cart
   };
-
-  const handleAddToCart = (id, title, price, quantity) => {
-    const prevData = localStorage.getItem("data") || "[]";
-    let parsedData = JSON.parse(prevData);
-
-    // Check if item with the same ID already exists
-    const existingItemIndex = parsedData.findIndex((item) => item.id === id);
-
-    if (existingItemIndex !== -1) {
-      // Item already exists, increment its quantity
-      parsedData[existingItemIndex].quantity += 1;
-    } else {
-      // Item doesn't exist, add it to the local storage
-      parsedData.push({ id: id, title: title, price: price, quantity: 1 });
-    }
-
-    // Update local storage with modified or new data
-    localStorage.setItem("data", JSON.stringify(parsedData));
-    setTotalQuantity(getCount());
-
-    // Retrieve existing data from the "paraTable" key in local storage
-    const existingParaTable = localStorage.getItem("paraTable") || "[]";
-    let parsedParaTable = JSON.parse(existingParaTable);
-
-    // Check if item with the same ID already exists in "paraTable"
-    const existingItemIndexParaTable = parsedParaTable.findIndex(
-      (item) => item.id === id
-    );
-
-    if (existingItemIndexParaTable !== -1) {
-      // Item already exists in "paraTable", increment its quantity
-      parsedParaTable[existingItemIndexParaTable].quantity += 1;
-    } else {
-      // Item doesn't exist in "paraTable", add it
-      parsedParaTable.push({ id: id, title: title, price: price, quantity: 1 });
-    }
-
-    // Update local storage with modified or new data for "paraTable" key
-    localStorage.setItem("paraTable", JSON.stringify(parsedParaTable));
-  };
-
-  // const [cartCount, setCartCount] = useState(0);
-
-  // const handleAddToCart = () => {
-  //   setCartCount(cartCount + 1);
-  //   localStorage.setItem("cartCount", cartCount + 1);
-  // };
-
-  // useEffect(() => {
-  //     const storedCartCount = localStorage.getItem("cartCount");
-  //     if (storedCartCount) {
-  //       setCartCount(parseInt(storedCartCount));
-  //     }
-  //   }, [handleAddToCart]);
 
   return (
     <motion.div
       className={`${
         active === id ? "flex-[10]" : "flex-[2]"
-      } relative flex items-center justify-center min-w-[140px] h-[450px] cursor-pointer transition-[flex] ease-in-out duration-700 overflow-hidden  w-auto  `}
-      onClick={() => handleClick(id)}
+      } relative flex items-center justify-center min-w-[250px] h-[450px] cursor-pointer bg-minicolor transition-[flex] ease-in-out duration-700 overflow-hidden border-gray-300 border rounded-lg`}
+      onClick={openPopup}
     >
-      <Image
-        src={imgUrl}
-        alt="coffee"
-        fill
-        className="rounded-xl object-cover"
-      />
-      {active !== id ? (
-        <div className="absolute bottom-0 w-24 h-36 text-black text-2xl font-medium rotate-[-90deg]">
-          {title}
-        </div>
-      ) : (
-        <div className="absolute p-6 w-full h-36 bottom-0 left-0 rounded-b-xl bg-[rgba(0,0,0,0.5)] ">
-          <h2 className="text-3xl font-semibold text-tahiti">{title}</h2>
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Image
+          src={imgUrl}
+          alt={title}
+          fill
+          className="object-cover rounded-xl"
+          style={{ transform: "scale(1.53)" }}
+        />
+      </div>
 
-          <div className="flex justify-between mb-2">
-            <p className="text-2xl font-medium text-tahiti">{price}</p>
+      <div
+        className={`absolute bottom-0 left-0 w-full p-4 rounded-b-xl bg-[rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col`}
+        style={{ height: '220px' }}
+      >
+        <div className="flex-grow flex flex-col justify-between">
+          <div>
+            <h2 className="text-[30px] font-semibold text-tahiti">{title}</h2>
+            <p className="text-[20px] font-extralight text-tahiti mb-4">${price}</p>
+          </div>
 
+          <div className="flex justify-end mt-auto">
             <button
-              className="flex justify-between mb-2 gap-3 items-center bg-addtocartcolor px-3 py-2 rounded-lg"
-              onClick={() => handleAddToCart(id, title, price, quantity)}
+              className="flex justify-center items-center bg-addtocartcolor px-4 py-2 rounded-lg hover:text-tahiti transition duration-300 mb-3"
+              onClick={handleAddToCart}
             >
               <Image
-                className=" translate-x-"
-                src={"/ADDTUCARTicon.png"}
-                alt="icon"
-                width={35}
-                height={35}
-                justify-end
-              ></Image>
-              <p className=" hover:text-tahiti text-right">Add to cart</p>
+                src="/ADDTUCARTicon.png"
+                width={20}
+                height={20}
+                alt="Cart Icon"
+              />
+              <span className="ml-2 text-white">Add to cart</span>
             </button>
+          </div>
+        </div>
+      </div>
+
+      {isPopupOpen && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-dark bg-opacity-50 flex justify-center items-center z-50"
+          onClick={closePopup}
+        >
+          <div
+            className="bg-tahiti rounded-lg shadow-lg w-[797px] h-[494px] flex relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-1/2 h-full p-4 overflow-hidden">
+              <div className="h-full w-full flex items-center justify-center" style={{ transform: "scale(2.7)" }}>
+                <Image
+                  src={imgUrl}
+                  alt={title}
+                  width={900}
+                  height={900}
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            <div className="w-1/2 p-6 flex flex-col justify-between bg-minicolor rounded-lg">
+              <div className="flex-grow overflow-auto max-h-[485px]">
+                <h2 className="text-2xl font-bold mb-4">{title}</h2>
+                <p className="text-lg mb-4">{description}</p>
+                <p className="text-lg mb-4">Price: <strong>${price}</strong></p>
+              </div>
+
+              <button
+                className="bg-red text-tahiti px-4 py-2 rounded-lg mt-4 self-end"
+                onClick={closePopup}
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -117,4 +108,25 @@ const HotcoffeeCard = ({
   );
 };
 
-export default HotcoffeeCard;
+// Main Component to Render Multiple Cards
+const HotcoffeeList = () => {
+  return (
+    <div className="flex flex-wrap justify-center">
+      {hotCoffeeProducts.map((product, index) => (
+        <HotcoffeeCard
+          key={index}
+          id={index}
+          imgUrl={product.image}
+          title={product.name}
+          price={product.price}
+          description={product.description}
+          active={null} // Pass the appropriate active state here
+          handleClick={() => {}} // Define handle click logic
+          setTotalQuantity={() => {}} // Define total quantity logic
+        />
+      ))}
+    </div>
+  );
+};
+
+export default HotcoffeeList; // Export the list component

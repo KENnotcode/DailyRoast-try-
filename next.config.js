@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['iili.io', 'fake-coffee-api.vercel.app'],
+    domains: ['iili.io', 'fake-coffee-api.vercel.app', 'images.pexels.com'],
   },
 };
 
