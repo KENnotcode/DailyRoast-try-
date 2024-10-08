@@ -20,7 +20,7 @@ const OurMenu = ({ setTotalQuantity, setCardLength }) => {
 
 
     // Fetch coffee products from the Fake Coffee API
-    fetch("https://dailyroast-api.vercel.app/products")
+    fetch("https://fake-coffee-api.vercel.app/api")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

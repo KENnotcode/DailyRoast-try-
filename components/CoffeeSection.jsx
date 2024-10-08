@@ -5,7 +5,7 @@ const CoffeeSection = () => {
   const [icedCoffees, setIcedCoffees] = useState([]);
 
   useEffect(() => {
-    fetch("https://dailyroast-api.vercel.app/products")
+    fetch("https://fake-coffee-api.vercel.app/api")
       .then((res) => res.json())
       .then((data) => setIcedCoffees(data)); // Make sure to adjust according to the API structure
   }, []);
