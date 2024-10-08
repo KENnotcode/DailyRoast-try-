@@ -4,8 +4,9 @@ import CoffeeCard from "@/components/CoffeeCard";
 
 import { RunningText, TitlePage } from "@/components/TypingText";
 
-import { HotCoffee } from "@/constant"; //HotCoffee
 import HotcoffeeCard from "@/components/HotCoffeeCard";
+
+import hotCoffeeProducts from "@/utils/hotcoffeedata";
 
 //setCardLength sa props
 const OurMenu = ({ setTotalQuantity, setCardLength }) => {
@@ -58,7 +59,7 @@ const OurMenu = ({ setTotalQuantity, setCardLength }) => {
 
         <div id="hotcoffee" style={{ overflowX: 'auto' }}>
           <div className="mt-[50px] flex flex-row min-h-[70vh] gap-2">
-            {HotCoffee.map((coffee, index) => (
+            {hotCoffeeProducts.map((coffee, index) => (
               <HotcoffeeCard key={coffee.id} {...coffee} active={hotcoffeeActive} handleClick={sethotcoffeeActive} setTotalQuantity={setTotalQuantity}/>
             ))}
           </div>
