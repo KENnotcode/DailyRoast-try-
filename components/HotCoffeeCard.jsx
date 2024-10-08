@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import hotCoffeeProducts from "@/utils/hotcoffeedata";
 
 const HotcoffeeCard = ({
+  coffee, // Accept single coffee object
   active,
   handleClick,
   setTotalQuantity,
@@ -11,7 +11,7 @@ const HotcoffeeCard = ({
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedCoffee, setSelectedCoffee] = useState(null); // State for selected coffee
 
-  const openPopup = (coffee) => {
+  const openPopup = () => {
     setSelectedCoffee(coffee);
     setIsPopupOpen(true);
   };
@@ -21,7 +21,7 @@ const HotcoffeeCard = ({
     setSelectedCoffee(null);
   };
 
-  const handleAddToCart = (coffee) => {
+  const handleAddToCart = () => {
     const prevData = localStorage.getItem("data") || "[]";
     let parsedData = JSON.parse(prevData);
 
@@ -43,58 +43,56 @@ const HotcoffeeCard = ({
 
   return (
     <>
-      {hotCoffeeProducts.map((coffee) => (
-        <motion.div
-          key={coffee.id}
-          className={`${
-            active === coffee.name ? "flex-[10]" : "flex-[2]"
-          } relative flex items-center justify-center min-w-[250px] h-[450px] cursor-pointer bg-minicolor transition-[flex] ease-in-out duration-700 overflow-hidden border-gray-300 border rounded-lg shadow-lg`}
-          onClick={() => openPopup(coffee)} // Open the popup on click
+      <motion.div
+        key={coffee.id}
+        className={`${
+          active === coffee.name ? "flex-[10]" : "flex-[2]"
+        } relative flex items-center justify-center min-w-[250px] h-[450px] cursor-pointer bg-minicolor transition-[flex] ease-in-out duration-700 overflow-hidden border-gray-300 border rounded-lg`}
+        onClick={openPopup} // Open the popup on click
+      >
+        {/* Coffee Image */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          <Image
+            src={coffee.image}
+            alt={coffee.name}
+            fill
+            className="object-cover rounded-xl"
+            style={{ transform: "scale(1.53)" }} // Adjust as necessary
+          />
+        </div>
+
+        {/* Product Details */}
+        <div
+          className={`absolute bottom-0 left-0 w-full p-4 rounded-b-xl bg-[rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col`}
+          style={{ height: '220px' }} // Ensure consistent height
         >
-          {/* Coffee Image */}
-          <div className="relative w-full h-full flex items-center justify-center">
-            <Image
-              src={coffee.image}
-              alt={coffee.name}
-              fill
-              className="object-cover rounded-xl"
-              style={{ transform: "scale(1.53)" }} // Adjust as necessary
-            />
-          </div>
+          <div className="flex-grow flex flex-col justify-between">
+            <div>
+              <h2 className="text-[30px] font-semibold text-tahiti">{coffee.name}</h2>
+              <p className="text-[20px] font-extralight text-tahiti mb-4">${coffee.price.toFixed(2)}</p>
+            </div>
 
-          {/* Product Details */}
-          <div
-            className={`absolute bottom-0 left-0 w-full p-4 rounded-b-xl bg-[rgba(0,0,0,0.5)] transition-all duration-300 flex flex-col`}
-            style={{ height: '220px' }} // Ensure consistent height
-          >
-            <div className="flex-grow flex flex-col justify-between">
-              <div>
-                <h2 className="text-[30px] font-semibold text-tahiti">{coffee.name}</h2>
-                <p className="text-[20px] font-extralight text-tahiti mb-4">${coffee.price.toFixed(2)}</p>
-              </div>
-
-              {/* Align Add to Cart Button to the right */}
-              <div className="flex justify-end mt-auto"> {/* This ensures the button is always at the bottom */}
-                <button
-                  className="flex justify-center items-center bg-addtocartcolor px-4 py-2 rounded-lg hover:text-tahiti transition duration-300 mb-3"
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent opening the popup
-                    handleAddToCart(coffee);
-                  }} // Add to cart functionality
-                >
-                  <Image
-                    src="/ADDTUCARTicon.png" // Ensure this path is correct
-                    width={20}
-                    height={20}
-                    alt="Cart Icon"
-                  />
-                  <span className="ml-2 text-white">Add to cart</span>
-                </button>
-              </div>
+            {/* Align Add to Cart Button to the right */}
+            <div className="flex justify-end mt-auto">
+              <button
+                className="flex justify-center items-center bg-addtocartcolor px-4 py-2 rounded-lg hover:text-tahiti transition duration-300 mb-3"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent opening the popup
+                  handleAddToCart();
+                }} // Add to cart functionality
+              >
+                <Image
+                  src="/ADDTUCARTicon.png" // Ensure this path is correct
+                  width={20}
+                  height={20}
+                  alt="Cart Icon"
+                />
+                <span className="ml-2 text-white">Add to cart</span>
+              </button>
             </div>
           </div>
-        </motion.div>
-      ))}
+        </div>
+      </motion.div>
 
       {/* Popup for Active State */}
       {isPopupOpen && selectedCoffee && (
@@ -128,18 +126,6 @@ const HotcoffeeCard = ({
                 <ul>
                   <li>
                     <strong>Region:</strong> {selectedCoffee.region}
-                  </li>
-                  <li>
-                    <strong>Weight:</strong> {selectedCoffee.weight}g
-                  </li>
-                  <li>
-                    <strong>Roast Level:</strong> {selectedCoffee.roast_level}
-                  </li>
-                  <li>
-                    <strong>Flavor Profile:</strong> {selectedCoffee.flavor_profile.join(", ")}
-                  </li>
-                  <li>
-                    <strong>Grind Option:</strong> {selectedCoffee.grind_option.join(", ")}
                   </li>
                   <li>
                     For <strong>${selectedCoffee.price.toFixed(2)}</strong> only
