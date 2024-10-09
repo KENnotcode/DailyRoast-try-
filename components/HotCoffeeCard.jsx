@@ -57,7 +57,7 @@ const HotcoffeeCard = ({
             alt={coffee.name}
             fill
             className="object-cover rounded-xl"
-            style={{ transform: "scale(1.53)" }} // Adjust as necessary
+            style={{ transform: "scale(1.2)" }} // Adjust as necessary
           />
         </div>
 
@@ -106,9 +106,9 @@ const HotcoffeeCard = ({
           >
             {/* Product Image */}
             <div className="w-1/2 h-full p-4 overflow-hidden">
-              <div className="h-full w-full flex items-center justify-center" style={{ transform: "scale(2.7)" }}>
+              <div className="h-full w-full flex items-center justify-center" style={{ transform: "scale(1.5))" }}>
                 <Image
-                  src={selectedCoffee.image}
+                  src={selectedCoffee.imageUrl}
                   alt={selectedCoffee.name}
                   width={900}
                   height={900}
@@ -121,13 +121,19 @@ const HotcoffeeCard = ({
             <div className="w-1/2 p-6 flex flex-col justify-between bg-minicolor rounded-lg">
               <div className="flex-grow overflow-auto max-h-[485px]">
                 <h2 className="text-2xl font-bold mb-4">{selectedCoffee.name}</h2>
-                <p className="text-lg mb-4">{selectedCoffee.description}</p>
 
                 <ul>
-                  <li>
-                    <strong>Region:</strong> {selectedCoffee.region}
+                <li>
+                    <strong>Description:</strong> {selectedCoffee.description}
                   </li>
                   <li>
+                    <strong>Ratio:</strong> {selectedCoffee.ratio}
+                  </li>
+                  <li>
+                    <strong>Size:</strong> {selectedCoffee.size}
+                  </li>
+                  <br/>
+                  <li className="text-lg">
                     For <strong>${selectedCoffee.price.toFixed(2)}</strong> only
                   </li>
                 </ul>

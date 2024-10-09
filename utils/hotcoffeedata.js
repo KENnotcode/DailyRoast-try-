@@ -1,158 +1,174 @@
-// scripts/hotcoffeedata.js
-
 const hotCoffeeProducts = [
-  {
+    {
       "id": 1,
-      "name": "Signature Blend",
-      "description": "A rich, full-bodied blend of carefully selected beans, offering a smooth and balanced flavor with a hint of chocolate and spice.",
+      "name": "Espresso",
+      "description": "The espresso, also known as a short black, is approximately 1 oz. of highly concentrated coffee. Although simple in appearance, it can be difficult to master.",
       "price": 2.70,
-      "region": "Global",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "ratio": "1 shot of espresso",
+      "size": "2-4 oz. Espresso Cup",
+      "image": "/kape/espresso.jpeg",
+      "imageUrl": "/kape/kape info/coffee-drinks_espresso.jpg"
+    },
+    {
       "id": 2,
-      "name": "House Blend",
-      "description": "A medium roast that combines beans from different regions for a well-rounded and approachable flavor, perfect for everyday enjoyment.",
-      "price": 2.52,
-      "region": "Ethiopia & Brazil",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Double Espresso",
+      "description": "A double espresso may also be listed as doppio, which is the Italian word for double. This drink is highly concentrated and strong.",
+      "price": 3.00, // Set your desired price
+      "ratio": "2 shots of espresso",
+      "size": "3-4 oz. Demitasse Cup",
+      "image": "/kape/doubleshot.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_double-espresso.jpg" // Change image URL as needed
+    },
+    {
       "id": 3,
-      "name": "French Roast",
-      "description": "A dark roast with a smoky aroma and bold flavor, this roast brings out the deep, rich essence of the coffee beans.",
-      "price": 2.88,
-      "region": "Colombia",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Red Eye",
+      "description": "The red eye's purpose is to add a boost of caffeine to your standard cup of coffee.",
+      "price": 3.20,
+      "ratio": "1 shot of espresso + 6 oz. of drip-brewed coffee",
+      "size": "8 oz. Coffee Mug",
+      "image": "/kape/redeye.webp",
+      "imageUrl": "/kape/kape info/coffee-drinks_red-eye.jpg"
+    },
+    {
       "id": 4,
-      "name": "Breakfast Blend",
-      "description": "A light and refreshing blend, perfect for starting your day. It offers bright, citrusy notes with a smooth finish.",
-      "price": 2.34,
-      "region": "Costa Rica",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Black Eye",
+      "description": "The black eye is just the doubled version of the red eye and is very high in caffeine.",
+      "price": 3.50,
+      "ratio": "2 shots of espresso + 6 oz. of drip-brewed coffee",
+      "size": "8-10 oz. Coffee Mug",
+      "image": "/kape/blackeye.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_black-eye.jpg" // Change image URL as needed
+    },
+    {
       "id": 5,
-      "name": "Espresso Roast",
-      "description": "A specially crafted blend for espresso lovers, with deep, rich flavors and a robust crema that pairs perfectly with milk or as a standalone shot.",
-      "price": 3.06,
-      "region": "Italy",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Americano",
+      "description": "Americanos are popular breakfast drinks and thought to have originated during World War II. Soldiers would add water to their coffee to extend their rations farther. The water dilutes the espresso while still maintaining a high level of caffeine.",
+      "price": 2.80,
+      "ratio": "1 shot of espresso + 3 oz. of hot water",
+      "size": "5-6 oz. Glass Coffee Mug",
+      "image": "/kape/americano.webp",
+      "imageUrl": "/kape/kape info/coffee-drinks_americano.jpg"
+    },
+    {
       "id": 6,
-      "name": "Italian Roast",
-      "description": "A dark, bold, and full-bodied roast with a smoky flavor and strong aroma, perfect for those who enjoy a robust and intense coffee experience.",
-      "price": 2.88,
-      "region": "Italy",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Long Black",
+      "description": "The long black is a similar coffee drink to the americano, but it originated in New Zealand and Australia. It generally has more crema than an americano.",
+      "price": 3.00, // Set your desired price
+      "ratio": "2 shots of espresso + 3 oz. of hot water",
+      "size": "6-8 oz. Glass Coffee Mug",
+      "image": "/kape/longblack.jpeg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_long-black.jpg" // Change image URL as needed
+    },
+    {
       "id": 7,
-      "name": "Colombian Roast",
-      "description": "A single-origin coffee from Colombia, known for its bright acidity and smooth, rich flavor with hints of caramel and nuts.",
-      "price": 2.70,
-      "region": "Colombia",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Macchiato",
+      "description": "The word macchiato means mark or stain. This is in reference to the mark that steamed milk leaves on the surface of the espresso as it is dashed into the drink. Flavoring syrups are often added to the drink according to customer preference.",
+      "price": 2.50,
+      "ratio": "1 shot of espresso + 1 to 2 teaspoons of steamed milk",
+      "size": "3 oz. Glass Espresso Cup",
+      "image": "/kape/macchiato.jpg",
+      "imageUrl": "/kape/kape info/coffee-drinks_macchiato.jpg" // Change image URL as needed
+    },
+    {
       "id": 8,
-      "name": "Sumatra Blend",
-      "description": "A unique and earthy blend from Sumatra, offering deep, rich flavors with a smooth finish and hints of cocoa and spice.",
-      "price": 2.97,
-      "region": "Sumatra",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Long Macchiato",
+      "description": "Often confused with a standard macchiato, the long macchiato is a taller version and will usually be identifiable by its distinct layers of coffee and steamed milk.",
+      "price": 3.20, // Set your desired price
+      "ratio": "2 shots of espresso + 2 to 4 teaspoons of steamed milk",
+      "size": "5 oz. Rocks Glass",
+      "image": "/kape/longmacchiato.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_long-macchiato.jpg" // Change image URL as needed
+    },
+    {
       "id": 9,
-      "name": "Mocha Java",
-      "description": "A traditional blend of Mocha beans from Yemen and Java beans from Indonesia, known for its full-bodied flavor with notes of chocolate and spice.",
-      "price": 2.79,
-      "region": "Yemen & Indonesia",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Cortado",
+      "description": "The cortado takes the macchiato one step further by evenly balancing the espresso with warm milk in order to reduce the acidity.",
+      "price": 3.00, // Set your desired price
+      "ratio": "1 shot of espresso + 1 oz. of warm milk + 1 cm of foam",
+      "size": "5 oz. Rocks Glass",
+      "image": "/kape/cortado.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_cortado.jpg" // Change image URL as needed
+    },
+    {
       "id": 10,
-      "name": "Vienna Roast",
-      "description": "A lighter dark roast with a rich, complex flavor profile, offering subtle sweetness and a smooth, balanced finish.",
-      "price": 2.70,
-      "region": "Vienna",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Breve",
+      "description": "The breve provides a decadent twist on the average espresso, adding steamed half-and-half to create a rich and creamy texture.",
+      "price": 3.50, // Set your desired price
+      "ratio": "1 shot of espresso + 3 oz. of steamed half-and-half + 1 cm of foam",
+      "size": "5-7 oz. Low Cup",
+      "image": "/kape/breve.webp", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_breve.jpg" // Change image URL as needed
+    },
+    {
       "id": 11,
-      "name": "Turkish Coffee",
-      "description": "A finely ground coffee brewed in a special pot, offering a strong and aromatic flavor with a thick, rich texture.",
-      "price": 3.15,
-      "region": "Turkey",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Cappuccino",
+      "description": "This creamy coffee drink is usually consumed at breakfast time in Italy and is loved in the United States as well. It is usually associated with indulgence and comfort because of its thick foam layer and additional flavorings that can be added to it.",
+      "price": 3.50, // Set your desired price
+      "ratio": "1-2 shots of espresso + 2 oz. of steamed milk + 2 oz. of foamed milk + sprinkling of chocolate powder (optional)",
+      "size": "6-8 oz. Cappuccino Mug",
+      "image": "/kape/cappuccino.jpeg",
+      "imageUrl": "/kape/kape info/coffee-drinks_cappuccino.jpg" // Change image URL as needed
+    },
+    {
       "id": 12,
-      "name": "Kenyan AA",
-      "description": "A premium grade coffee from Kenya, known for its bright acidity, fruity flavors, and full body.",
-      "price": 3.24,
-      "region": "Kenya",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Flat White",
+      "description": "A flat white also originates from New Zealand and Australia and is very similar to a cappuccino but lacks the foam layer and chocolate powder. To keep the drink creamy rather than frothy, steamed milk from the bottom of the jug is used instead of from the top.",
+      "price": 3.50, // Set your desired price
+      "ratio": "1 shot of espresso + 4 oz. of steamed milk",
+      "size": "6 oz. Glass Tumbler",
+      "image": "/kape/flatwhite.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_flat-white.jpg" // Change image URL as needed
+    },
+    {
       "id": 13,
-      "name": "Brazilian Santos",
-      "description": "A smooth and mild coffee from Brazil, offering nutty and sweet flavors with a balanced acidity.",
-      "price": 2.61,
-      "region": "Brazil",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Cafe Latte",
+      "description": "Cafe lattes are considered an introductory coffee drink since the acidity and bitterness of coffee are cut by the amount of milk in the beverage. Flavoring syrups are often added to the latte for those who enjoy sweeter drinks.",
+      "price": 3.00, // Set your desired price
+      "ratio": "1 shot of espresso + 8-10 oz. of steamed milk + 1 cm of foam",
+      "size": "6-9 oz. Coffee Mug",
+      "image": "/kape/cafelatte.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_caffe-latte.jpg" // Change image URL as needed
+    },
+    {
       "id": 14,
-      "name": "Guatemalan Antigua",
-      "description": "A coffee from the Antigua region of Guatemala, known for its full body, rich flavor, and spicy aroma.",
-      "price": 2.88,
-      "region": "Guatemala",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Mocha",
+      "description": "The mocha is considered a coffee and hot chocolate hybrid. The chocolate powder or syrup gives it a rich and creamy flavor and cuts the acidity of the espresso.",
+      "price": 3.75,
+      "ratio": "1 shot of espresso + 1-2 oz. of chocolate syrup/powder + 1-3 oz. of steamed milk + 2-3 cm of foam or whipped cream",
+      "size": "6-8 oz. Irish Coffee Mug",
+      "image": "/kape/mocha.webp", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_mocha.jpg" // Change image URL as needed
+    },
+    {
       "id": 15,
-      "name": "Hawaiian Kona",
-      "description": "A highly prized coffee from Hawaii, celebrated for its smooth texture, sweet aroma, and nutty undertones.",
-      "price": 3.60,
-      "region": "Hawaii",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Vienna",
+      "description": "There are a few variations on the Vienna, but one of the most common is made with two ingredients: espresso and whipped cream. The whipped cream takes the place of milk and sugar to provide a creamy texture.",
+      "price": 3.50, // Set your desired price
+      "ratio": "1-2 shots of espresso + 2 oz. of whipped cream",
+      "size": "4-5 oz. Espresso Mug",
+      "image": "/kape/vienna.jpg", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_vienna.jpg" // Change image URL as needed
+    },
+    {
       "id": 16,
-      "name": "Ethiopian Yirgacheffe",
-      "description": "A single-origin coffee from Ethiopia, offering floral and citrus notes with a bright and lively acidity.",
-      "price": 3.15,
-      "region": "Ethiopia",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
+      "name": "Affogato",
+      "description": "Affogatos are more for a dessert coffee than a drink you would find at a cafe, but they can add a fun twist to your coffee menu. They are made by pouring a shot of espresso over a scoop of vanilla ice cream to create a sweet after-meal treat.",
+      "price": 4.00, // Set your desired price
+      "ratio": "1-2 shots of espresso + 1 scoop of vanilla ice cream",
+      "size": "5-7 oz. Dessert Dish",
+      "image": "/kape/affogato.webp", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_affogato.jpg" // Change image URL as needed
+    },
+    {
       "id": 17,
-      "name": "Costa Rican Tarrazu",
-      "description": "A high-altitude coffee from Costa Rica, known for its crisp acidity, full body, and vibrant flavors of fruit and honey.",
-      "price": 2.97,
-      "region": "Costa Rica",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
-      "id": 18,
-      "name": "Nicaraguan Segovia",
-      "description": "A balanced coffee from Nicaragua, featuring a medium body with sweet, nutty flavors and a hint of citrus.",
-      "price": 2.70,
-      "region": "Nicaragua",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  },
-  {
-      "id": 19,
-      "name": "Panama Geisha",
-      "description": "An exotic and highly sought-after coffee known for its unique floral and jasmine-like aroma, with a complex flavor profile.",
-      "price": 3.96,
-      "region": "Panama",
-      "image": "https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg"
-  }
-];
-
-module.exports = hotCoffeeProducts;
+      "name": "Cafe au Lait",
+      "description": "The cafe au lait is typically made with French press coffee instead of an espresso shot to bring out the different flavors in the coffee. It is then paired with scalded milk instead of steamed milk and poured at a 50/50 ratio.",
+      "price": 3.00, // Set your desired price
+      "ratio": "5 oz. French press coffee + 5 oz. scalded milk",
+      "size": "12 oz. Coffee Mug",
+      "image": "/kape/cafeaulait.webp", // Change image as needed
+      "imageUrl": "/kape/kape info/coffee-drinks_cafe-au-lait.jpg" // Change image URL as needed
+    }
+  ];
+  
+  module.exports = hotCoffeeProducts;    
