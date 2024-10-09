@@ -46,7 +46,7 @@ const hotCoffeeProducts = [
     "price": 4.75, // The price is in Dollar
     "ratio": "1 shot of espresso + 3 oz. of hot water",
     "size": "5-6 oz. Glass Coffee Mug",
-    "image": "/kape/americano.webp",
+    "image": "/kape/americano.jpg",
     "imageUrl": "/kape/kape info/coffee-drinks_americano.jpg"
   },
   {
