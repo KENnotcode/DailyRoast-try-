@@ -134,7 +134,7 @@ const HotcoffeeCard = ({
                   </li>
                   <br/>
                   <li className="text-lg">
-                    For <strong>${selectedCoffee.price.toFixed(2)}</strong> only
+                    For <strong>${selectedCoffee.price.toFixed(2)}</strong> only!
                   </li>
                 </ul>
               </div>
