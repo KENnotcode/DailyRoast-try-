@@ -29,13 +29,13 @@ export const CoffeTypes = [
     },
     {
         id:4,
-        href:"#hotcoffee",
-        title:"Hot Coffee"
+        href:"#premiumtea",
+        title:"Premium Tea"
     },
     {
         id:5,
-        href:"#creationseries",
-        title:"Creation Series"
+        href:"#hotcoffee",
+        title:"Hot Coffee"
     },
     {
         id: 6,
